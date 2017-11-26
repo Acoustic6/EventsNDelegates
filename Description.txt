@@ -1,0 +1,2 @@
+So here in methods the only thing that changes is the if-condition, i need to parameterize this code.
+This is a perfect place for delegates to do that. Lets do it in next commit.
