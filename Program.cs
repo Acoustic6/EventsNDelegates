@@ -5,16 +5,22 @@ namespace EventsNDelegates
 {
     class Program
     {
+
+        class CompilersClass
+        {
+            public int i;
+            public int TheMethodGeneratedFromLambdaExpression()
+            {
+                return i++;
+            }
+        }
+
         static void Main(string[] args)
         {
-            Action action = GetAnAction();
-            //i is 0
+            Func<int> action = new CompilersClass().TheMethodGeneratedFromLambdaExpression;
             action();
-            //i is 1
             action();
-            //i is 2
             action();
-            //i is 3
         }
 
         static Action GetAnAction()

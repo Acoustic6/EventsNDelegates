@@ -1,2 +1,1 @@
-GetAnAction returns a function that captures a scope of an i.
-This is what called a closure because we are closing in on i's scope or capturing i's scope.
+This is how compiler implements closures behind the scenes
