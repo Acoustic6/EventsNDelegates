@@ -1,1 +1,3 @@
-This is how compiler implements closures behind the scenes
+So here a car subscribed itself to an action of a train signal by adding it's method to a 
+train signals' action's delegate chain.
+All cars subscribed to this action will stop.

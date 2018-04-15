@@ -3,30 +3,37 @@ using System.Collections.Generic;
 
 namespace EventsNDelegates
 {
+    class TrainSignal
+    {
+        public Action ProduceASignal;
+        public void HereComesATrain()
+        {
+            ProduceASignal();
+        }
+    }
+
+    class Car
+    {
+        public Car(TrainSignal trainSignal)
+        {
+            trainSignal.ProduceASignal += Stop;
+        }
+        private void Stop()
+        {
+            Console.WriteLine("Stopping!");
+        }
+    }
+
     class Program
     {
-
-        class CompilersClass
-        {
-            public int i;
-            public int TheMethodGeneratedFromLambdaExpression()
-            {
-                return i++;
-            }
-        }
-
         static void Main(string[] args)
         {
-            Func<int> action = new CompilersClass().TheMethodGeneratedFromLambdaExpression;
-            action();
-            action();
-            action();
-        }
+            TrainSignal trainSignal = new TrainSignal();
+            Car car1 = new Car(trainSignal);
+            Car car2 = new Car(trainSignal);
+            Car car3 = new Car(trainSignal);
 
-        static Action GetAnAction()
-        {
-            int i = 0;
-            return () => i++;
+            trainSignal.HereComesATrain();
         }
     }
 }
