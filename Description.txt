@@ -1,3 +1,7 @@
-Now using a delegate we parameterized function GetAllNumbersSurvivedCondition.
-For that we made several shorty functions. But still there are little static functions who's 
-only difference is in returning boolean. And in their names that actually we dont care about.
+We can simply use labdas instead of having dozens of shorty static functions written.
+When we make a lambda compiler converts it to a static method behind the scenes.
+
+the compiler converts 
+i => i < 5 
+to
+static bool WhateverName(int number) { return number < 5; }

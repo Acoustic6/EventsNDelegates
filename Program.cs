@@ -7,13 +7,9 @@ namespace EventsNDelegates
 
     class Program
     {
-        static bool NumberLessThanFive(int number) { return number < 5; }
-        static bool NumberLessThanTen(int number) { return number < 10; }
-        static bool NumberGreaterThanEight(int number) { return number > 8; }
-
         static void Main(string[] args)
         {
-            IEnumerable<int> result = GetAllNumbersSurvivedCondition(new[] { 2, 7, 6, 9, 4, 6, 2 }, NumberLessThanFive);
+            IEnumerable<int> result = GetAllNumbersSurvivedCondition(new[] { 2, 7, 6, 9, 4, 6, 2 }, i => i < 5);
             
             foreach (int n in result)
             {
