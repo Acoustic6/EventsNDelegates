@@ -1,0 +1,11 @@
+obj/EventsNDelegates.csproj.nuget.g.targets
+obj/EventsNDelegates.csproj.nuget.g.props
+obj/project.assets.json
+EventsNDelegates.csproj
+obj/Debug/netcoreapp2.0/EventsNDelegates.AssemblyInfo.cs
+.vscode/tasks.json
+.vscode/launch.json
+obj/Debug/netcoreapp2.0/EventsNDelegates.csproj.FileListAbsolute.txt
+bin/Debug/netcoreapp2.0/EventsNDelegates.runtimeconfig.json
+bin/Debug/netcoreapp2.0/EventsNDelegates.runtimeconfig.dev.json
+bin/Debug/netcoreapp2.0/EventsNDelegates.deps.json

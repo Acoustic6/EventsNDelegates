@@ -3,8 +3,6 @@ using System.Collections.Generic;
 
 namespace EventsNDelegates
 {
-    delegate bool MeDelegate(int number); 
-
     class Program
     {
         static void Main(string[] args)
@@ -15,11 +13,13 @@ namespace EventsNDelegates
             {
                 Console.WriteLine(n);
             }
+
+            Action a;
         }
 
-        static IEnumerable<int> GetAllNumbersSurvivedCondition(IEnumerable<int> inputArray, MeDelegate condition)
+        static IEnumerable<T> GetAllNumbersSurvivedCondition<T>(IEnumerable<T> inputArray, Func<T, bool> condition)
         {
-            foreach(var item in inputArray)
+            foreach(T item in inputArray)
             {
                 if (condition(item))
                     yield return item;

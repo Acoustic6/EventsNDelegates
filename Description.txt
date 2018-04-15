@@ -1,7 +1,9 @@
-We can simply use labdas instead of having dozens of shorty static functions written.
-When we make a lambda compiler converts it to a static method behind the scenes.
+We can avoid writing custom delegate MeDelegate using existing delegate named Func 
+that is a certain type of generic delegate which returns T and takes in up to 16 parameters.
+The returning parameter is always the last one.
 
-the compiler converts 
-i => i < 5 
-to
-static bool WhateverName(int number) { return number < 5; }
+public delegate TResult Func<in T, out TResult>(T arg)
+
+there is also predefined delegate Action that returns void and takes no arguments
+
+public delegate void Action()
