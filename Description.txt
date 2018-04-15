@@ -1,9 +1,2 @@
-We can avoid writing custom delegate MeDelegate using existing delegate named Func 
-that is a certain type of generic delegate which returns T and takes in up to 16 parameters.
-The returning parameter is always the last one.
-
-public delegate TResult Func<in T, out TResult>(T arg)
-
-there is also predefined delegate Action that returns void and takes no arguments
-
-public delegate void Action()
+GetAnAction returns a function that captures a scope of an i.
+This is what called a closure because we are closing in on i's scope or capturing i's scope.

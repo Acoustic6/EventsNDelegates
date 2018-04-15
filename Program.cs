@@ -7,23 +7,20 @@ namespace EventsNDelegates
     {
         static void Main(string[] args)
         {
-            IEnumerable<int> result = GetAllNumbersSurvivedCondition(new[] { 2, 7, 6, 9, 4, 6, 2 }, i => i < 5);
-            
-            foreach (int n in result)
-            {
-                Console.WriteLine(n);
-            }
-
-            Action a;
+            Action action = GetAnAction();
+            //i is 0
+            action();
+            //i is 1
+            action();
+            //i is 2
+            action();
+            //i is 3
         }
 
-        static IEnumerable<T> GetAllNumbersSurvivedCondition<T>(IEnumerable<T> inputArray, Func<T, bool> condition)
+        static Action GetAnAction()
         {
-            foreach(T item in inputArray)
-            {
-                if (condition(item))
-                    yield return item;
-            }
+            int i = 0;
+            return () => i++;
         }
     }
 }
