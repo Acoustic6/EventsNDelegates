@@ -3,43 +3,30 @@ using System.Collections.Generic;
 
 namespace EventsNDelegates
 {
+    delegate bool MeDelegate(int number); 
+
     class Program
     {
+        static bool NumberLessThanFive(int number) { return number < 5; }
+        static bool NumberLessThanTen(int number) { return number < 10; }
+        static bool NumberGreaterThanEight(int number) { return number > 8; }
+
         static void Main(string[] args)
         {
-            IEnumerable<int> result = GetAllNumbersLessThanFive(new[] { 2, 7, 6, 9, 4, 6, 2 });
+            IEnumerable<int> result = GetAllNumbersSurvivedCondition(new[] { 2, 7, 6, 9, 4, 6, 2 }, NumberLessThanFive);
             
             foreach (int n in result)
             {
                 Console.WriteLine(n);
             }
-            Console.ReadKey();
         }
 
-        static IEnumerable<int> GetAllNumbersLessThanFive(IEnumerable<int> numbers)
+        static IEnumerable<int> GetAllNumbersSurvivedCondition(IEnumerable<int> inputArray, MeDelegate condition)
         {
-            foreach (int number in numbers)
+            foreach(var item in inputArray)
             {
-                if (number < 5)
-                    yield return number;
-            }
-        }
-
-        static IEnumerable<int> GetAllNumbersLessThanTen(IEnumerable<int> numbers)
-        {
-            foreach (int number in numbers)
-            {
-                if (number < 10)
-                    yield return number;
-            }
-        }
-
-        static IEnumerable<int> GetAllNumbersGreaterThanEight(IEnumerable<int> numbers)
-        {
-            foreach (int number in numbers)
-            {
-                if (number > 8)
-                    yield return number;
+                if (condition(item))
+                    yield return item;
             }
         }
     }
