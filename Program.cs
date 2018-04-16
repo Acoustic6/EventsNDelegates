@@ -5,7 +5,7 @@ namespace EventsNDelegates
 {
     class TrainSignal
     {
-        public Action ProduceASignal;
+        public event Action ProduceASignal;
         public void HereComesATrain()
         {
             ProduceASignal();
@@ -32,10 +32,10 @@ namespace EventsNDelegates
             Car car1 = new Car(trainSignal);
             Car car2 = new Car(trainSignal);
             Car car3 = new Car(trainSignal);
-            //trainSignal.HereComesATrain();
 
-            trainSignal.ProduceASignal();//direct call.
-            trainSignal.ProduceASignal = null;//nullifying!
+            //not allowed procedures for an event!
+            trainSignal.ProduceASignal();
+            trainSignal.ProduceASignal = null;
         }
     }
 }

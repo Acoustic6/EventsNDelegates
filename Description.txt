@@ -1,4 +1,1 @@
-What if a naughty kid would call ProduceASignal() directly when there is no any train? 
-Cars will stop with no reason and a traffic jam will appear.
-Or even worse, the kid will nullisy a delegate and when a real train will approach 
-no car will stop...
+If we don't want one to have an access to call delegate directly or nullify it we should use a event instead of a delegate!
