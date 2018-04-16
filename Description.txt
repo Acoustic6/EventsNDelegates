@@ -1,3 +1,4 @@
-So here a car subscribed itself to an action of a train signal by adding it's method to a 
-train signals' action's delegate chain.
-All cars subscribed to this action will stop.
+What if a naughty kid would call ProduceASignal() directly when there is no any train? 
+Cars will stop with no reason and a traffic jam will appear.
+Or even worse, the kid will nullisy a delegate and when a real train will approach 
+no car will stop...

@@ -32,8 +32,10 @@ namespace EventsNDelegates
             Car car1 = new Car(trainSignal);
             Car car2 = new Car(trainSignal);
             Car car3 = new Car(trainSignal);
+            //trainSignal.HereComesATrain();
 
-            trainSignal.HereComesATrain();
+            trainSignal.ProduceASignal();//direct call.
+            trainSignal.ProduceASignal = null;//nullifying!
         }
     }
 }
