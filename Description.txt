@@ -1,1 +1,18 @@
-If we don't want one to have an access to call delegate directly or nullify it we should use a event instead of a delegate!
+Acyually very often by convention in events we use delegate type EventHandler.
+
+public delegate void EventHandler(object sender, EventArgs e);
+
+This one takes 2 arguments. First one is an object that emmited this event.
+And second - additional parameters we pass through event.
+
+public class EventArgs
+{
+    public static readonly EventArgs Empty;//represents an event with no event data.
+
+    public EventArgs();
+}
+
+Also there is a generic EventHandler:
+
+public delegate void EventHandler<TEventArgs>(object sender, TEventArgs e);
+

@@ -3,12 +3,20 @@ using System.Collections.Generic;
 
 namespace EventsNDelegates
 {
+    class TrainSignalEventArgs
+    {
+        public string trainType;
+    }
+
     class TrainSignal
     {
-        public event Action ProduceASignal;
+        public string type;
+
+        public event EventHandler<TrainSignalEventArgs> ProduceASignal;
+        
         public void HereComesATrain()
         {
-            ProduceASignal();
+            ProduceASignal(this, new TrainSignalEventArgs { trainType = "Express" } );
         }
     }
 
@@ -18,9 +26,12 @@ namespace EventsNDelegates
         {
             trainSignal.ProduceASignal += Stop;
         }
-        private void Stop()
+        private void Stop(object sender, TrainSignalEventArgs eventArgs)
         {
-            Console.WriteLine("Stopping!");
+            if (sender is TrainSignal)
+                Console.WriteLine($"I hear a {((TrainSignal)sender).type} signal!");
+            Console.WriteLine($"Stopping! {eventArgs.trainType} is coming!");
+                
         }
     }
 
@@ -28,14 +39,9 @@ namespace EventsNDelegates
     {
         static void Main(string[] args)
         {
-            TrainSignal trainSignal = new TrainSignal();
-            Car car1 = new Car(trainSignal);
-            Car car2 = new Car(trainSignal);
-            Car car3 = new Car(trainSignal);
-
-            //not allowed procedures for an event!
-            trainSignal.ProduceASignal();
-            trainSignal.ProduceASignal = null;
+            var trainSignal = new TrainSignal { type = "loud" };
+            var car = new Car(trainSignal);
+            trainSignal.HereComesATrain();
         }
     }
 }
